@@ -7,11 +7,9 @@
 #ifndef DRM_FOURCC_H
 #define DRM_FOURCC_H
 
-//#include "drm.h"
+#include <drm/drm_fourcc.h>
 
-// These typedefs are copied from drm.h
-typedef uint32_t __u32;
-typedef uint64_t __u64;
+#if 0
 
 #if defined(__cplusplus)
 extern "C" {
@@ -386,6 +384,8 @@ extern "C" {
 
 #if defined(__cplusplus)
 }
+#endif
+
 #endif
 
 #endif /* DRM_FOURCC_H */

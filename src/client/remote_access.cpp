@@ -146,7 +146,7 @@ public:
 
     static struct org_kde_kwin_remote_buffer_listener s_listener;
     static void paramsCallback(void *data, org_kde_kwin_remote_buffer *rbuf,
-            qint32 fd, quint32 width, quint32 height, quint32 stride, quint32 format);
+            qint32 fd, quint32 width, quint32 height, quint32 stride, quint32 format, qint32 frame);
 
     WaylandPointer<org_kde_kwin_remote_buffer, org_kde_kwin_remote_buffer_release> remotebuffer;
     RemoteBuffer *q;
@@ -164,9 +164,10 @@ RemoteBuffer::Private::Private(RemoteBuffer *q)
 }
 
 void RemoteBuffer::Private::paramsCallback(void *data, org_kde_kwin_remote_buffer *rbuf,
-        qint32 fd, quint32 width, quint32 height, quint32 stride, quint32 format)
+        qint32 fd, quint32 width, quint32 height, quint32 stride, quint32 format, qint32 frame)
 {
     Q_UNUSED(rbuf)
+    Q_UNUSED(frame)
     Private *p = reinterpret_cast<Private *>(data);
     p->fd = fd;
     p->width = width;

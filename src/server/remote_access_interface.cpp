@@ -337,7 +337,7 @@ RemoteBufferInterfacePrivate::~RemoteBufferInterfacePrivate()
 
 void RemoteBufferInterfacePrivate::sendGbmHandle()
 {
-    send_gbm_handle(resource()->handle, wrapped->fd(), wrapped->width(), wrapped->height(), wrapped->stride(), wrapped->format());
+    send_gbm_handle(resource()->handle, wrapped->fd(), wrapped->width(), wrapped->height(), wrapped->stride(), wrapped->format(), 0);
 }
 
 void RemoteBufferInterfacePrivate::org_kde_kwin_remote_buffer_release(Resource *resource)
