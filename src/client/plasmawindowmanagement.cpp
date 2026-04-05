@@ -112,6 +112,7 @@ private:
     static void appmenuChangedCallback(void *data, org_kde_plasma_window *org_kde_plasma_window, const char *service_name, const char *object_path);
     static void activityEnteredCallback(void *data, org_kde_plasma_window *org_kde_plasma_window, const char *id);
     static void activityLeftCallback(void *data, org_kde_plasma_window *org_kde_plasma_window, const char *id);
+    static void resourceNameChangedCallback(void *data, org_kde_plasma_window *window, const char *resource_name);
     static void windowIdCallback(void *data, org_kde_plasma_window *window, uint32_t winid);
     void setActive(bool set);
     void setMinimized(bool set);
@@ -426,6 +427,7 @@ org_kde_plasma_window_listener PlasmaWindow::Private::s_listener = {
     appmenuChangedCallback,
     activityEnteredCallback,
     activityLeftCallback,
+    resourceNameChangedCallback,
     windowIdCallback,
 };
 
@@ -585,6 +587,13 @@ void PlasmaWindow::Private::activityLeftCallback(void *data, org_kde_plasma_wind
     const QString stringId(QString::fromUtf8(id));
     p->plasmaActivities.removeAll(stringId);
     Q_EMIT p->q->plasmaActivityLeft(stringId);
+}
+
+void PlasmaWindow::Private::resourceNameChangedCallback(void *data, org_kde_plasma_window *window, const char *resource_name)
+{
+    Q_UNUSED(data)
+    Q_UNUSED(window)
+    Q_UNUSED(resource_name)
 }
 
 void PlasmaWindow::Private::windowIdCallback(void *data, org_kde_plasma_window *window, uint32_t winid)
