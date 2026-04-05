@@ -1,4 +1,4 @@
-dwayland (5.25.0-kwayland.5.24.3) unstable; urgency=medium
+dwayland (5.25.0+kwayland.5.24.3) unstable; urgency=medium
 
   * add ECM to dev package
 
